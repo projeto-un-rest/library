@@ -1,12 +1,21 @@
 <template>
-  <h2>Library System</h2>
+  <Login/>
 </template>
 
 <script>
+import Login from "./components/Login.vue"
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Login
+  }
 }
 </script>
 
 <style>
+*{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
 </style>
