@@ -6,7 +6,7 @@
                 <h2 class="title-login">Login</h2>
                 <div class="input-login">
                     <div class="input">
-                        <input type="text" placeholder="Digite sua matrícula" v-model="user.registration">
+                        <input type="text" placeholder="Digite seu CPF" v-model="user.cpf">
                     </div>
                     <div class="input">
                         <input type="Password" placeholder="Digite sua senha" v-model="user.password">
@@ -27,7 +27,7 @@ export default {
     data() {
         return {
             user: {
-                registration: "",
+                cpf: "",
                 password: ""
             }
         }
@@ -36,7 +36,7 @@ export default {
     methods: {
         signIn() {
             this.store.dispatch("signIn", this.user)
-                .then(() => this.$route.push({ name: "Home" }))
+                .then(() => this.$router.push({ name: "Home" }))
                 .catch(() => this.toast.error("Usuário ou senha inválidos"))
         }
     },
@@ -53,12 +53,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .main-login{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:100vw;
     height:100vh;
     background-color:#FAFAFA;
 }
@@ -70,17 +69,17 @@ export default {
     justify-content:space-around;
     align-items:center;
 }
-.title-login{
+.title-login {
     color:#32A027;
 }
- .box-image{
+ .box-image {
     width:50%;
     height:100%;
     background: url("@/assets/library.svg"); 
     background-repeat:no-repeat;
     background-position: center;
 }
-.form-login{
+.form-login {
     display:flex;
     flex-direction:column;
     justify-content:space-around;
@@ -88,21 +87,22 @@ export default {
     height:55%;
     width:50%;
  }
- .input-login{
+ .input-login {
     display:flex;
     align-items:center;
     justify-content:space-between;
     flex-direction:column;
     height:35%;
  }
-input{
+input {
     border:1px solid #92E3A9;
+    outline: none;
     border-radius:20px;
-    padding-left:10px;
+    padding: 12px;
     width:200px;
     height:40px;
 }
-.button{
+.button {
     background:none;
     width:200px;
     height:40px;
@@ -111,7 +111,6 @@ input{
     border:none;
     border-radius:20px;
 }
-
 .button:hover {
     cursor: pointer;
 }
